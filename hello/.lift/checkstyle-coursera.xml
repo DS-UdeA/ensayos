@@ -49,6 +49,7 @@
 
     <!-- check for non printable characters (excluding Tab, CR, LF) -->
     <module name="RegexpSingleline">
+        <property name="id" value="IllegalCharacter"/>
         <property name="fileExtensions" value ="txt, java, toy"/>
         <property name="format" value="[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]"/>
         <property name="message" value="Line contains either a non-printable or control character."/>
@@ -86,6 +87,16 @@
         <property name="message" value="This file appears to be setting the byte order mark (BOM)."/>
     </module>
 
+    <module name="RegexpMultiline">
+        <property name="id" value="Design"/>
+        <property name="format" value="StdDraw\.(setXscale|setYscale|setScale|enableDoubleBuffering|line|polygon|line|setPenColor|clear).*StdDraw\.setCanvasSize"/>
+        <property name="matchAcrossLines" value="true"/>
+        <property name="ignoreCase" value="false"/>
+        <property name="minimum" value="0"/>
+        <property name="maximum" value="0"/>
+        <property name="message" value="The call to ''StdDraw.setCanvasSize()'' must be the first call to a method in ''StdDraw'' because it erases the current drawing and resets the pen color, pen radius, and coordinate system back to their default values."/>
+    </module>
+
 <!-- Seems to flag too many .java files. Not sure why.
     <module name="NewlineAtEndOfFile">
         <property name="fileExtensions" value="java, xml, py"/>
@@ -117,6 +128,15 @@
 
     <module name="RegexpOnFilename">
         <property name="id" value="IllegalFilename"/>
+        <property name="severity" value="error"/>
+        <property name="fileNamePattern" value="126$"/>
+        <property name="match" value="true"/>
+        <property name="fileExtensions" value="java"/>
+        <property name="ignoreFileNameExtensions" value="true"/>
+        <message key = "regexp.filename.match" value="Do not submit a file whose name ends in ''126''; that suffix is reserved by the autograder."/>
+    </module>
+
+    <module name="RegexpOnFilename">
         <property name="severity" value="error"/>
         <property name="fileNamePattern" value="226$"/>
         <property name="match" value="true"/>
@@ -193,10 +213,6 @@
             <message key = "illegal.method.call" value="Do not call ''{0}'' in this course. This method is a shortcut to ''System.getProperty()''. Did you mean to call ''Integer.parseInt()'' instead?"/>
         </module>
 
-        <module name="IllegalMethodCall">
-            <property name="format" value="Arrays\.parallelSort"/>
-            <message key = "illegal.method.call" value="Do not call ''{0}'' in this course. Instead, use ''Arrays.sort()''."/>
-        </module>
 
         <!-- =========================================================================== -->
         <!-- END: CUSTOM CHECKERS (by wayne)                                             -->
@@ -324,6 +340,13 @@
         <module name="SuperClone"/>
         <module name="SuperFinalize"/>
 
+        <!-- using edu.princeton.cs.introcs -->
+        <module name="IllegalImport">
+            <property name="severity" value="error"/>
+            <property name="illegalPkgs" value="edu.princeton.cs.introcs"/>
+            <message key="import.illegal" value="Do not import ''{0}'' in this course."/>
+        </module>
+
          <!-- Don't allow these classes in java.lang -->
          <!-- (must include both short and long names for java.lang classes) -->
         <module name="IllegalType">
@@ -444,7 +467,7 @@
             <message key="import.illegal" value="Do not import ''{0}'' in this course."/>
         </module>
 
-        <!-- using edu.princeton.cs.stdlib instead of edu.princeton.cs.algs4 -->
+        <!-- using edu.princeton.cs.introcs instead of edu.princeton.cs.algs4 -->
         <module name="IllegalImport">
             <property name="severity" value="error"/>
             <property name="illegalPkgs" value="edu.princeton.cs.introcs"/>
@@ -594,13 +617,6 @@
             <message key="import.illegal" value="Do not use ''java.util.Random'' in this course. Instead, use an appropriate method from ''StdRandom''."/>
         </module>
 
-        <!-- Don't allow variables to be declared of type Object[], e.g., to then cast to another type like Integer[] or Queue[]  -->
-        <module name="MyIllegalType">
-            <property name="id" value="Design"/>
-            <property name="illegalClassNames" value="Object[]"/>
-            <message key="illegal.type" value="You should not need to declare variables of type ''{0}'' in this program."/>
-        </module>
-
         <!-- Don't allow variables to be declared of wrapper types   -->
         <!-- (special case for int, boolean, and double for more descriptive error message)   -->
         <!-- Use MyIllegalType because IllegalType flags wrapper type when used with generics -->
@@ -608,61 +624,35 @@
 
         <module name="MyIllegalType">
             <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Boolean"/>
+            <property name="illegalClassNames" value="java.lang.Boolean"/>
             <message key="illegal.type" value="Use the primitive type ''boolean'' instead of the wrapper type ''{0}''."/>
         </module>
 
         <module name="MyIllegalType">
             <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Double"/>
+            <property name="illegalClassNames" value="java.lang.Double"/>
             <message key="illegal.type" value="Use the primitive type ''double'' instead of the wrapper type ''{0}''."/>
         </module>
 
         <module name="MyIllegalType">
             <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Integer"/>
+            <property name="illegalClassNames" value="java.lang.Integer"/>
             <message key="illegal.type" value="Use the primitive type ''int'' instead of the wrapper type ''{0}''."/>
         </module>
 
         <module name="MyIllegalType">
             <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Character"/>
+            <property name="illegalClassNames" value="java.lang.Character"/>
             <message key="illegal.type" value="Use the primitive type ''char'' instead of the wrapper type ''{0}''."/>
         </module>
 
         <module name="MyIllegalType">
             <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Long,
-                                                      Short,
-                                                      Float,
-                                                      Byte"/>
+            <property name="illegalClassNames" value="java.lang.Long,
+                                                      java.lang.Short,
+                                                      java.lang.Float,
+                                                      java.lang.Byte"/>
             <message key="illegal.type" value="Use the primitive type instead of the corresponding wrapper type ''{0}''. For example, use ''long'' instead of ''Long''."/>
-        </module>
-
-        <module name="MyIllegalType">
-            <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Boolean[],
-                                                      Integer[],
-                                                      Double[],
-                                                      Character[],
-                                                      Short[],
-                                                      Long[],
-                                                      Float[],
-                                                      Byte[]"/>
-            <message key="illegal.type" value="Use an array of the primitive type instead of an array of the corresponding wrapper type ''{0}''. For example, use ''int[]'' instead of ''Integer[]''."/>
-        </module>
-
-        <module name="MyIllegalType">
-            <property name="id" value="Wrapper"/>
-            <property name="illegalClassNames" value="Boolean[][],
-                                                      Integer[][],
-                                                      Double[][],
-                                                      Character[][],
-                                                      Short[][],
-                                                      Long[][],
-                                                      Float[][],
-                                                      Byte[][]"/>
-            <message key="illegal.type" value="Use an array of the primitive type instead of an array of the corresponding wrapper type ''{0}''. For example, use ''int[][]'' instead of ''Integer[][]''."/>
         </module>
 
         <!-- Don't allow objects to be constructed of wrapper types -->

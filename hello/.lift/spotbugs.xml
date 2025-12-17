@@ -220,7 +220,7 @@
     <!-- generating random integers before StdRandom.uniform() is introduced -->
     <Match>
         <Class name = "~Coupon|CouponCollector|TwentyQuestions|Craps|Functions|
-                              |Mozart|Birthday|Birthdays|RollDie|SumOfTwoDice|
+                              |Mozart|Birthday|Birthdays|RollDie|DiceHistogram|SumOfTwoDice|
                               |RandomStudent|Sicherman|Chaos|DiscreteDistribution|
                               |MonteHall|MostLikelyRoll" />
         <BugPattern name="DM_NEXTINT_VIA_NEXTDOUBLE" />
@@ -372,7 +372,7 @@
 
     <!-- string concatenation before StringBuffer is introduced -->
     <Match>
-        <Class name = "~(LFSR|MarkovModel|Perceptron|MultiPerceptron)(126)?" />
+        <Class name = "~(DiceHistogram|LFSR|MarkovModel|Perceptron|MultiPerceptron)(126)?" />
         <BugPattern name="SBSC_USE_STRINGBUFFER_CONCATENATION" />
     </Match>
 
@@ -402,7 +402,7 @@
 
     <!-- arithmetic overflow on AppleSharing or AppleSharingGame -->
     <Match>
-	<Class name = "~(AppleSharing|AppleSharingGame)" />
+        <Class name = "~(AppleSharing|AppleSharingGame)" />
         <BugPattern name="IM_AVERAGE_COMPUTATION_COULD_OVERFLOW" />
     </Match>
 
@@ -482,12 +482,6 @@
     <Match>
         <Class name = "~(BoggleBoard)(226)?" />
         <BugPattern name="FE_FLOATING_POINT_EQUALITY,HE_HASHCODE_USE_OBJECT_EQUALS" />
-    </Match>
-
-    <!-- DataSet currently use public static instance variables -->
-    <Match>
-        <Class name = "~(DataSet)(226)?" />
-        <BugPattern name="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" />
     </Match>
 
     <!--  ***********************************************************************  -->

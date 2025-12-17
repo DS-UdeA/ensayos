@@ -188,7 +188,7 @@
 
     <!-- Calls Math.random() -->
     <suppress id="AvoidMathRandom"
-              files="(CouponCollector|Coupon|Flip|Gambler|RandomInt|RandomSeq|RandomSurfer|Sample|SelfAvoidingWalk|TwentyQuestions).java"/>
+              files="(CouponCollector|Coupon|Flip|Gambler|RandomInt|RandomSeq|RandomSurfer|Sample|SelfAvoidingWalk|TwentyQuestions|PerfectShuffle).java"/>
 
     <!-- use type parameter upper and lower bounds -->
     <suppress id="TypeParameter"
@@ -200,21 +200,25 @@
 
     <!-- Calls Math.random() -->
     <suppress id="AvoidMathRandom"
-              files="(RandomWalker|RandomWalkers|RollDice|RollDie|RollLoadedDie|Ball|Birthday|RandomPokerHands).java"/>
+              files="(RandomWalker|RandomWalkers|MusicalDiceGame|DiceHistogram|RollDice|RollDie|RollLoadedDie|Ball|Birthday|RandomPokerHands).java"/>
+
+    <!-- the name of the geographic region is not needed -->
+    <suppress checks="UnusedLocalVariable"
+              files="(WorldMap|PlayTheseNotes).java"/>
 
     <!-- throw RuntimeException is ok in RingBuffer because we've just introduced exceptions -->
     <suppress checks="IllegalThrows"
               files="(RingBuffer).java"/>
-    
+
     <!-- students need ^ as xor operator in LFSR and PhotoMagic -->
     <!-- students may use bit-whacking in LFSR, but limits register size -->
     <!-- HammingEncoder, HammingDecoder, and TOY do some bit-whacking -->
     <suppress id="BitwiseAnd"
-              files="(LFSR|HammingEncoder|HammingDecoder|TOY).java"/>
+              files="(LFSR|HammingEncoder|HammingDecoder|TOY|BinaryPoly).java"/>
     <suppress id="BitwiseOr"
-              files="(LFSR|HammingEncoder|HammingDecoder|TOY).java"/>
+              files="(LFSR|HammingEncoder|HammingDecoder|TOY|BinaryPoly).java"/>
     <suppress id="BitwiseXor"
-              files="(LFSR|PhotoMagic|HammingEncoder|HammingDecoder|TOY).java"/>
+              files="(LFSR|PhotoMagic|HammingEncoder|HammingDecoder|TOY|BinaryPoly).java"/>
 
     <!-- convenient to put multiple statements on one line -->
     <suppress checks="OneStatementPerLine"
@@ -223,6 +227,14 @@
     <!-- programming exams that uses generics (seems needed for generic types only in Checkstyle 8.14, bug?)  -->
     <suppress id="Wrapper"
               files="(RollingStats|NgonArt|MiniPro|MiniPro2|Election).java"/>
+
+    <!-- has a quadruple nested for loop -->
+    <suppress checks="NestedForDepth"
+              files="(Tile|KernelFilter|Minesweeper).java"/>
+
+    <!-- clean implementations can use many parameters -->
+    <suppress checks="ParameterNumberCheck"
+              files="(Art).java"/>
 
     <!--  ***********************************************************************  -->
     <!--  COS 226 PROGRAMMING ASSIGNMENT EXCEPTIONS                                -->
@@ -236,15 +248,15 @@
     <suppress checks="IllegalImport"
               files="(PercolationVisualizer).java"/>
 
-    <!-- has (or might have) a quadruple nested loop -->
+    <!-- has a quadruple nested loop -->
     <suppress checks="NestedForDepth"
-              files="(BruteCollinearPoints|Board|SolverVisualizer|WeakLearner).java"/>
+              files="(BruteCollinearPoints|Board|SolverVisualizer).java"/>
 
     <!-- UnicodeTest has non-ASCII characters in header -->
     <suppress id="NotASCII"
               files="(UnicodeTest).java"/>
 
-    <!-- can't seem to combine these into one check with | -->
+    <!-- id does not support regular expressions, so need two separate suppression statements -->
     <suppress id="FloatType"
               files="SCUtility.java"/>
     <suppress id="FloatLiteral"
@@ -277,12 +289,8 @@
     <suppress id="Wrapper"
               files="(ShortestCommonAncestor|SAP|DeluxeBFS).java"/>
 
-    <!-- some CircularSuffixArray solutions use an Integer[] -->
-    <suppress id="Wrapper"
-              files="(CircularSuffixArray).java"/>
 
-
-    <!--  ***********************************************************************  -->
+    <!-- *********************************************************************** -->
     <!--  IGNORE HEADER CHECKS EXCEPT ON CERTAIN FILES                             -->
     <!--  ***********************************************************************  -->
 
@@ -290,13 +298,13 @@
     <!-- this formatting hack seems to enable us to split regexp over several lines  -->
     <suppress id="Header"
               files="^(?!.*\b(readme.txt|
-                         |HelloWorld.java|HiFour.java|SumThree.java|Ordered.java|GreatCircle.java|RGBtoCMYK.java|
+                         |HelloWorld.java|HiFour.java|DrawCat.java|SumThree.java|Ordered.java|GreatCircle.java|RGBtoCMYK.java|
                          |Bits.java|Checkerboard.java|NoonSnooze.java|RandomWalker.java|RandomWalkers.java|RollDice.java|  
                          |NBody.java|
                          |Transform2D.java|Sierpinski.java|Art.java|
                          |LFSR.java|PhotoMagic.java|
                          |RingBuffer.java|GuitarString|GuitarHero.java|
-                         |MarkovModel.java|TextGenerator.java|
+                         |MarkovModel.java|TextGenerator.java|MarkovLM|Chat126|
                          |Tour.java|
                          |Blob.java|BeadFinder.java|BeadTracker.java|Avogadro.java|
                          |Percolation.java|PercolationStats.java|
@@ -312,17 +320,34 @@
     <!--  IGNORE LINELENGTH, MAINCALLS, and COMMENT EXCEPT ON CERTAIN FILES        -->
     <!--  ***********************************************************************  -->
 
-    <suppress checks="LineLengthCheck|MainCallsAllPublicMethods|CommentCheck"
-              files="^(?!.*(Hello|HelloWorld|HiFour|SumThree|Ordered|GreatCircle|RGBtoCMYK|
-                         |Bits|Checkerboard|NoonSnooze|RandomWalker|RandomWalkers|RollDice|
+
+    <!-- don't require main to call directly the one public method in API -->
+    <suppress checks="MainCallsAllPublicMethods"
+              files="(ImageClassifier|AppleSharing|BinaryPoly).java"/>
+
+    <suppress checks="LineLengthCheck|MainCallsAllPublicMethods|CommentCheck|IllegalImport|IllegalType|MyIllegalType|IllegalInstantiation|IllegalMethodCall|IllegalToken|IllegalCatch"
+              files="^(?!.*(Hello|HelloWorld|HiFour|DrawCat|SumThree|
+                         |Greeting|SayHelloWorld|
+                         |Ordered|GreatCircle|RGBtoCMYK|
+                         |Bits|Checkerboard|NoonSnooze|
+                         |Triangle|CMYKtoRGB|Brighter|
+                         |MusicLoop|MajorScale|DeluxeMajorScale|
+                         |RandomWalker|RandomWalkers|Duotone|SayMilitaryTime|
+                         |SoundWaveVisualizer|DiceHistogram|EchoFilter|MusicalDiceGame|
                          |NBody|
-                         |Transform2D|Sierpinski|Art|
-                         |ImageClassifier|Perceptron|MultiPerceptron|
+                         |ReverseSoundWave|Superpose|PerfectShuffle|
+                         |Quilt|WorldMap|SepiaFilter|
+                         |Synth|
+                         |Transform2D|Sierpinski|Art|DelannoyBrute|DelannoyMemo|DelannoyDP|
+                         |Tile|Tracker|Note|
                          |LFSR|PhotoMagic|
+                         |ImageClassifier|Perceptron|MultiPerceptron|
                          |RingBuffer|GuitarString|GuitarHero|
-                         |MarkovModel|TextGenerator|
+                         |MarkovModel|TextGenerator|Chat126|MarkovLM|
                          |Tour|
                          |Blob|BeadFinder|BeadTracker|Avogadro|
+                         |AppleSharing|AppleSharingGame|BinaryPoly|BinaryPolyClient|TigerWallet|
+                         |ChefOlympics|ParkingMeter|
                          |Percolation|PercolationStats|
                          |Deque|RandomizedQueue|
                          |Autocomplete|BinarySearchDeluxe|Term|
@@ -330,8 +355,7 @@
                          |PointST|KdTreeST|
                          |WordNet|ShortestCommonAncestor|
                          |SeamCarver|
-                         |Clustering|WeakLearner|BoostingAlgorithm|
-                         |MoveToFront|BurrowsWheeler|CircularSuffixArray|
+                         |MoveToFront|BurrowsWheeler|
                          |HelloGoodbye|RightTriangle|GreatCircle|CMYKtoRGB|
                          |GeneralizedHarmonic|BandMatrix|RandomWalker|RandomWalkers|
                          |DiscreteDistribution|ThueMorse|Birthday|
@@ -340,7 +364,7 @@
                          |TrinomialBrute|TrinomialDP|RevesPuzzle|
                          |Inversions|Ramanujan|MaximumSquareSubmatrix|
                          |Huntingtons|KernelFilter|
-                         |ColorHSB|Clock|
+                         |ColorHSB|Clock|Pedometer|
                          |BruteCollinearPoints|FastCollinearPoints|Point|
                          |BaseballElimination|
                          |BoggleSolver|

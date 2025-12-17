@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
+    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hello.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../hello.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Algorithms__Part_I.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Algorithms__Part_I.xml.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/algs4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lift/algs4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lift/checkstyle-coursera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.lift/checkstyle-coursera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lift/checkstyle-lift.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.lift/checkstyle-lift.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lift/checkstyle-suppressions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.lift/checkstyle-suppressions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.lift/spotbugs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.lift/spotbugs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Algorithms, Part I.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WELCOME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/animals.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/animals25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/animals8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biased-coin.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/die.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dream.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loaded-die.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/names.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roshambo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinyTale.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/two-dice.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +54,11 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
     <option name="SCHEME" value="Project" />
   </component>
   <component name="FindBugs-IDEA-Workspace">
@@ -27,6 +67,9 @@
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -70,7 +113,67 @@
     <option name="showModules" value="false" />
     <option name="sortByType" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/UdeA/2026-1/repos/ensayos/hello",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Barnsley">
+    <configuration name="Barnsley" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Barnsley" />
+      <module name="Computer Science" />
+      <option name="PROGRAM_PARAMETERS" value="1000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HelloWorld" />
+      <module name="Computer Science" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="hello" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="hello" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Barnsley" />
+        <item itemvalue="Application.HelloWorld" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1765989391372</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765989391372</updated>
+      <workItem from="1765989392386" duration="1226000" />
+    </task>
+    <servers />
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -106,5 +209,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
